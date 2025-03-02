@@ -12,4 +12,5 @@ function solve(text) {
     console.log(match.join('\n'));
 }
 
+
 solve('Nowadays everyone uses # to tag a #special word in #socialMedia')
