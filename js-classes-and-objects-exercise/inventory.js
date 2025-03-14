@@ -6,7 +6,8 @@ function inventory(arrOfStrings) {
         
         object[heroName] = {
             'heroLevel': Number(heroLevel),
-            'items': items};
+            'items': items
+        };
     }
     
     let entries = Object.entries(object);
