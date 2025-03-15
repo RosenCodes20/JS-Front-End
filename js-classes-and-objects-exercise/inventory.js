@@ -1,36 +1,22 @@
 function inventory(arrOfStrings) {
-    let object = {};
+    let objects = [];
     
     for (let string of arrOfStrings) {
         let [heroName, heroLevel, ...items] = string.split(' / ');
         
-        object[heroName] = {
+        objects.push({
+            heroName,
             'heroLevel': Number(heroLevel),
             'items': items
-        };
+        });
     }
-    
-    let entries = Object.entries(object);
-    
-    entries.sort((a, b) => {
-        let key = a[1].heroLevel;
-        let value = b[1].heroLevel;
-        
-        return key - value;
-    })
-    
-    for (let [key, value] of entries) {
-        console.log(`Hero: ${key}`);
-        
-        let entriesTwo = Object.entries(value);
-        
-        for (let [keyTwo, valueTwo] of entriesTwo) {
-            if (keyTwo == 'heroLevel') {
-                console.log(`level => ${valueTwo}`);
-            } else if (keyTwo == 'items' && valueTwo.length > 0 ) {
-                console.log(`items => ${valueTwo.join(', ')}`);
-            }
-        }    
+
+    objects.sort((a, b) => a.heroLevel - b.heroLevel)
+
+    for (let object of objects) {
+        console.log(`Hero: ${object.heroName}`);
+        console.log(`level => ${object.heroLevel}`);
+        console.log(`items => ${object.items.join(', ')}`);
     }
 }
 
