@@ -3,6 +3,10 @@ function solve() {
    
    let searchField = document.getElementById('searchField').value;
    
+   if (!searchField) {
+      return;
+   }
+
    for (let row of tableRows) {
       if (row.className == 'select') {
          row.className = '';
