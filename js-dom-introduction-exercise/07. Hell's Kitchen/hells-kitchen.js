@@ -26,10 +26,10 @@ function solve() {
         
         for (let employee of splittedEmployees) {
             let [employeeName, salary] = employee.split(' ');
+            salary = Number(salary);
             
             object[name]['employees'].push(employeeName);
-            object[name]['salaries'].push(Number(salary));
-            
+            object[name]['salaries'].push(salary);
         }
         
         let sum = 0;
@@ -45,7 +45,10 @@ function solve() {
             bestRestaurant = object[name];
             bestRestaurantName = name;
             
-            bestSalary = Math.max(...object[name]['salaries'])
+            bestSalary = Math.max(...object[name]['salaries']);
+
+        } else if (bestRestaurant == object[name]) {
+            highestAverageSalary = averageSalary;
         }
     }
     
